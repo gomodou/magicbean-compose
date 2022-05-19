@@ -6,6 +6,8 @@ services:
     networks:
       - pipeline-network
     restart: always
+    volumes:
+      - ./pipeline/modou_workspace:/modou/workspace
   db:
     image: postgres:13.1
     command: "postgres -c listen_addresses='*'"
@@ -14,6 +16,8 @@ services:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=modou
       - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
     networks:
       - pipeline-network
   modou_hive_db:
