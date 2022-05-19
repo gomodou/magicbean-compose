@@ -2,7 +2,7 @@ version: "3"
 
 services:
   pipeline:
-    image: modou_pipeline:latest
+    image: hykpi/modou_pipeline:latest
     networks:
       - pipeline-network
     restart: always
@@ -21,7 +21,7 @@ services:
     networks:
       - pipeline-network
   modou_hive_db:
-    image: modou_hive_db:latest
+    image: hykpi/modou_hive_db:latest
     command: "postgres -c listen_addresses='*'"
     environment:
       - POSTGRES_USER=postgres
@@ -38,7 +38,7 @@ services:
     networks:
       - pipeline-network
   backend:
-    image: modou_backend:latest
+    image: hykpi/modou_backend:latest
     ports:
       - 9010:80
     depends_on:
@@ -46,8 +46,6 @@ services:
       - "db"
       - "modou_hive_db"
       - "rabbitmq"
-    volumes:
-      - ./backend/logs:/modou/backend/logs
     networks:
       - pipeline-network
     restart: always
