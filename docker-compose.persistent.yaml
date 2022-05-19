@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  pipeline:
+    image: modou_pipeline:latest
+    networks:
+      - pipeline-network
+    restart: always
+    volumes:
+      - ./pipeline/modou_workspace:/modou/workspace
+  db:
+    image: postgres:13.1
+    command: "postgres -c listen_addresses='*'"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=modou
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - pipeline-network
+  modou_hive_db:
+    image: modou_hive_db:latest
+    command: "postgres -c listen_addresses='*'"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=modou_hive
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - pipeline-network
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - DEFAULT_USER=guest
+      - DEFAULT_PASS=guest
+    networks:
+      - pipeline-network
+  backend:
+    image: modou_backend:latest
+    ports:
+      - 9010:80
+    depends_on:
+      - "pipeline"
+      - "db"
+      - "modou_hive_db"
+      - "rabbitmq"
+    volumes:
+      - ./backend/logs:/modou/backend/logs
+    networks:
+      - pipeline-network
+    restart: always
+volumes:
+  db-data:
+networks:
+  pipeline-network:
+    driver: bridge
