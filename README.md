@@ -14,6 +14,12 @@ after the script is execute successfuly, you have running magicbean in docker:
 - default username/password: `admin` / `123456`
 - get a license in [https://hykpi.com/shop](https://hykpi.com/shop)
 
+For Windows user:
+
+```
+. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/deploy.ps1").Content))))
+```
+
 ## for dev
 
 ```
