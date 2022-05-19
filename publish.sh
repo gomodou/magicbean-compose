@@ -1,8 +1,10 @@
+CURRENT_DIR=$(pwd)
 function build_image() {
-    cd $1 && ./build-image.sh && cd ..
+    cd $CURRENT_DIR/$1 && ./build-image.sh && cd ..
+    cd $CURRENT_DIR
 }
 build_image backend
-build_image pipline
+build_image pipeline
 build_image modou_hive_db
 
 echo ""
