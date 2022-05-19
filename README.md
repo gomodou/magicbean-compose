@@ -1,5 +1,18 @@
 # magicbean-compose
 
+## Installation
+
+copy and run:
+
+```shell
+/bin/bash -c "$(curl https://raw.githubusercontent.com/gomodou/magicbean-compose/main/deploy.sh)"
+```
+
+after the script is execute successfuly, you have running magicbean in docker: 
+
+- [http://localhost:9010](http://localhost:9010)
+- default username/password: `admin` / `123456`
+- get a license in [https://hykpi.com/shop](https://hykpi.com/shop)
 
 ## for dev
 
