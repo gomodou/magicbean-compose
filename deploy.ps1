@@ -9,7 +9,7 @@ if( (Get-WinUserLanguageList).LocalizedName.ToLower().SubString(0,2) -ceq "en" )
     curl.exe -o docker-compose.yaml https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.aliyun.yaml
 }
 
-docker-compose.exe up
+docker-compose.exe up -d
 
 Write-Output "open http://localhost:9010"
 Write-Output "defaut username/password: admin / 123456"
