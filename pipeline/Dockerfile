@@ -20,6 +20,7 @@ WORKDIR /modou/
 RUN curl --create-dirs -o ./magicbean-$MAGICBEAN_VERSION.tar.gz $OSS_URL/magicbean/magicbean-$MAGICBEAN_VERSION.tar.gz \
     && tar -zxvf magicbean-$MAGICBEAN_VERSION.tar.gz \
     && mv ./magicbean ./pipeline \
+    && rm ./pipeline/stem*.jar \
     && rm ./magicbean-$MAGICBEAN_VERSION.tar.gz \
     && curl --create-dirs -o ./spark-2.4.8-bin-hadoop2.7.tgz $OSS_URL/apachespark/spark-2.4.8-bin-hadoop2.7.tgz \
     && tar -zxvf spark-2.4.8-bin-hadoop2.7.tgz  \
