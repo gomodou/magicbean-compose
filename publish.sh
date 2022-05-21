@@ -10,13 +10,13 @@ build_image backend $VERSION
 build_image pipeline $VERSION
 build_image modou_hive_db 2.6.0
 
-docker push hykpi/modou_hive_db:$VERSION
+docker push hykpi/modou_hive_db:2.6.0
 docker push hykpi/modou_backend:$VERSION
 docker push hykpi/modou_pipeline:$VERSION
 docker push hykpi/modou_hive_db:latest
 docker push hykpi/modou_pipeline:latest
 docker push hykpi/modou_backend:latest
-docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_hive_db:$VERSION
+docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_hive_db:2.6.0
 docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_backend:$VERSION
 docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_pipeline:$VERSION
 docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_hive_db:latest
