@@ -1,0 +1,68 @@
+version: "3"
+
+services:
+  pipeline:
+    image: registry.cn-shanghai.aliyuncs.com/magicbean/modou_pipeline:${MAGICBEAN_VERSION}
+    environment:
+      - MAGICBEAN_VERSION=${MAGICBEAN_VERSION}
+      - MODOU_HIVE_USER=${POSTGRES_USER}
+      - MODOU_HIVE_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - pipeline-network
+    restart: always
+    volumes:
+      - ./pipeline/modou_workspace:/modou/workspace
+  db:
+    image: postgres:13.1
+    command: "postgres -c listen_addresses='*'"
+    environment:
+      - MAGICBEAN_VERSION=${MAGICBEAN_VERSION}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=modou
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - pipeline-network
+  modou_hive_db:
+    image: registry.cn-shanghai.aliyuncs.com/magicbean/modou_hive_db:2.6.0
+    command: "postgres -c listen_addresses='*'"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=modou_hive
+      - PGDATA=/var/lib/postgresql/data
+    networks:
+      - pipeline-network
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - DEFAULT_USER=guest
+      - DEFAULT_PASS=guest
+    networks:
+      - pipeline-network
+  backend:
+    image: registry.cn-shanghai.aliyuncs.com/magicbean/modou_backend:${MAGICBEAN_VERSION}
+    environment:
+      - MAGICBEAN_VERSION=${MAGICBEAN_VERSION}
+      - MB_CORS_ALLOWED_ORIGINS=${MB_CORS_ALLOWED_ORIGINS}
+      - MB_POSTGRES_USER=${POSTGRES_USER}
+      - MB_POSTGRES_PWD=${POSTGRES_PASSWORD} 
+      - MB_HIVE_THRIFT_USERNAME=${POSTGRES_USER}
+      - MB_HIVE_THRIFT_PASSWORD=${POSTGRES_PASSWORD} 
+    ports:
+      - 9010:80
+    depends_on:
+      - "pipeline"
+      - "db"
+      - "modou_hive_db"
+      - "rabbitmq"
+    networks:
+      - pipeline-network
+    restart: always
+volumes:
+  db-data:
+networks:
+  pipeline-network:
+    driver: bridge
