@@ -1,8 +1,8 @@
 #!/bin/bash 
 
 CURRENT_DIR=$(pwd)
-ALIYUN_COMPOSE_FILE="https://raw.githubusercontent.com/gomodou/magicbean-compose/main/docker-compose.aliyun.yaml"
-DOCKERHUB_COMPOSE_FILE="https://raw.githubusercontent.com/gomodou/magicbean-compose/main/docker-compose.dockerhub.yaml"
+ALIYUN_COMPOSE_FILE="https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.aliyun.yaml"
+DOCKERHUB_COMPOSE_FILE="https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.dockerhub.yaml"
 WORKING_DIR=$CURRENT_DIR/magicbean-compose
 COMPOSE_FILE_NAME="docker-compose.yml"
 export DOCKER_CLIENT_TIMEOUT=120
