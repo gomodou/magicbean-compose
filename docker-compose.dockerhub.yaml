@@ -45,7 +45,12 @@ services:
   backend:
     image: hykpi/modou_backend:${MAGICBEAN_VERSION}
     environment:
+      - MAGICBEAN_VERSION=${MAGICBEAN_VERSION}
       - MB_CORS_ALLOWED_ORIGINS=${MB_CORS_ALLOWED_ORIGINS}
+      - MB_POSTGRES_USER=${POSTGRES_USER}
+      - MB_POSTGRES_PWD=${POSTGRES_PASSWORD} 
+      - MB_HIVE_THRIFT_USERNAME=${POSTGRES_USER}
+      - MB_HIVE_THRIFT_PASSWORD=${POSTGRES_PASSWORD} 
     ports:
       - 9010:80
     depends_on:
