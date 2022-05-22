@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-MAGICBEAN_VERSION="2.6.1"
+MAGICBEAN_VERSION="2.6.2"
 CURRENT_DIR=$(pwd)
 ALIYUN_COMPOSE_FILE="https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.aliyun.$MAGICBEAN_VERSION.yaml"
 DOCKERHUB_COMPOSE_FILE="https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.dockerhub.$MAGICBEAN_VERSION.yaml"
