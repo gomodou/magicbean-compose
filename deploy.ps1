@@ -10,7 +10,7 @@ if( (Get-WinUserLanguageList).LocalizedName.ToLower().SubString(0,2) -ceq "en" )
     curl.exe -o docker-compose.yaml "https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.aliyun.$magicbean_version.yaml"
 }
 
-curl.exe -o prod.env https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/prod.env
+curl.exe -o prod.env "https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/prod.$magicbean_version.env"
 
 Write-Output "docker-compose.exe --env-file prod.env -f docker-compose.yaml up -d"
 docker-compose.exe --env-file prod.env -f docker-compose.yaml up -d
