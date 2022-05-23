@@ -1,5 +1,6 @@
 FROM domblack/oracle-jdk8
 
+ENV MAGICBEAN_VERSION=2.6.2
 ENV MB_PIPELINE_PORT=80
 ENV SPARK_OPTS="-Dspark.dynamicAllocation.enabled=false -Dspark.shuffle.service.enabled=false"
 ENV SPARK_HOME="/modou/spark"
