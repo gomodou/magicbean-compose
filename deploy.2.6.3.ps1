@@ -1,4 +1,4 @@
-$magicbean_version = '2.6.2'
+$magicbean_version = '2.6.3'
 $current_dir = Get-Location
 $new_foldername = 'magicbean-compose'
 New-Item -Name $new_foldername -Path $current_dir -ItemType "directory"
