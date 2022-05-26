@@ -11,6 +11,11 @@ ENV_FILE_NAME="prod.env"
 export DOCKER_CLIENT_TIMEOUT=120
 export COMPOSE_HTTP_TIMEOUT=120
 
+if ! hash `which docker-compose` > /dev/null 2>&1; then
+    echo "docker-compose is required to use. Install docker-compose and try again."
+    exit 1
+fi
+
 function curl_downloader() {
     output_path=$1
     output_file_name=$2
