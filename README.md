@@ -5,7 +5,7 @@
 copy and run:
 
 ```shell
-/bin/bash -c "$(curl https://raw.githubusercontent.com/gomodou/magicbean-compose/main/deploy.sh)"
+/bin/bash -c "$(curl https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/deploy.sh)"
 ```
 
 after the script is execute successfuly, you have running magicbean in docker: 
@@ -17,7 +17,7 @@ after the script is execute successfuly, you have running magicbean in docker:
 For Windows user, run this command in Powershell:
 
 ```
-. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/deploy.ps1").Content))))
+. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/deploy.ps1").Content))))
 ```
 
 ## for dev
