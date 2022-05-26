@@ -47,24 +47,24 @@ RUN curl --create-dirs -o ./magicbean-$MAGICBEAN_VERSION.tar.gz $OSS_URL/magicbe
     && echo "  </property>" >> $SPARK_HOME/conf/hive-site.xml \
     && echo "</configuration>" >> $SPARK_HOME/conf/hive-site.xml
 
-RUN mkdir -p /modou/pipeline/conda \
-    && curl --create-dirs -o /modou/pipeline/conda/Miniconda3-latest-$OS-x86_64.sh $OSS_URL/conda/Miniconda3-latest-$OS-x86_64.sh \
-    && /bin/bash /modou/pipeline/conda/Miniconda3-latest-$OS-x86_64.sh -bfup $CONDA_HOME \
-    && rm /modou/pipeline/conda/Miniconda3-latest-$OS-x86_64.sh
-RUN $CONDA_HOME/bin/conda create -y -n py36 python=3.6 \
-    && $CONDA_HOME/envs/py36/bin/pip install findspark \
-    && $CONDA_HOME/envs/py36/bin/pip install numpy \
-    && $CONDA_HOME/envs/py36/bin/pip install scipy \
-    && $CONDA_HOME/envs/py36/bin/pip install pandas \
-    && $CONDA_HOME/envs/py36/bin/pip install hdfs3 \
-    && $CONDA_HOME/envs/py36/bin/pip install pyarrow==0.13.0 \
-    && $CONDA_HOME/envs/py36/bin/pip install lifetimes \
-    && $CONDA_HOME/envs/py36/bin/pip install datatile
-RUN mkdir -p $MODOU_PYTHON_WORKSPACE \
-    && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/clv.py $OSS_URL/pipeline-python-scripts/clv.py \
-    && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/user_script.py $OSS_URL/pipeline-python-scripts/user_script.py \
-    && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/wrapper.py $OSS_URL/pipeline-python-scripts/wrapper.py \
-    && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/entry.py $OSS_URL/pipeline-python-scripts/entry.py 
+# RUN mkdir -p /modou/pipeline/conda \
+#     && curl --create-dirs -o /modou/pipeline/conda/Miniconda3-latest-$OS-x86_64.sh $OSS_URL/conda/Miniconda3-latest-$OS-x86_64.sh \
+#     && /bin/bash /modou/pipeline/conda/Miniconda3-latest-$OS-x86_64.sh -bfup $CONDA_HOME \
+#     && rm /modou/pipeline/conda/Miniconda3-latest-$OS-x86_64.sh
+# RUN $CONDA_HOME/bin/conda create -y -n py36 python=3.6 \
+#     && $CONDA_HOME/envs/py36/bin/pip install findspark \
+#     && $CONDA_HOME/envs/py36/bin/pip install numpy \
+#     && $CONDA_HOME/envs/py36/bin/pip install scipy \
+#     && $CONDA_HOME/envs/py36/bin/pip install pandas \
+#     && $CONDA_HOME/envs/py36/bin/pip install hdfs3 \
+#     && $CONDA_HOME/envs/py36/bin/pip install pyarrow==0.13.0 \
+#     && $CONDA_HOME/envs/py36/bin/pip install lifetimes \
+#     && $CONDA_HOME/envs/py36/bin/pip install datatile
+# RUN mkdir -p $MODOU_PYTHON_WORKSPACE \
+#     && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/clv.py $OSS_URL/pipeline-python-scripts/clv.py \
+#     && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/user_script.py $OSS_URL/pipeline-python-scripts/user_script.py \
+#     && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/wrapper.py $OSS_URL/pipeline-python-scripts/wrapper.py \
+#     && curl --create-dirs -o $MODOU_PYTHON_WORKSPACE/entry.py $OSS_URL/pipeline-python-scripts/entry.py 
 
 WORKDIR /modou/pipeline
 EXPOSE 80
