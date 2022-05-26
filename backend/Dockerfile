@@ -1,7 +1,7 @@
 FROM domblack/oracle-jdk8
 
-ENV MAGICBEAN_VERSION=2.6.3
-ENV OSS_URL=https://magicbean-release.oss-accelerate.aliyuncs.com
+ENV MAGICBEAN_VERSION=2.6.4
+ENV OSS_URL=https://hykpi-release.oss-accelerate.aliyuncs.com
 ENV MB_SYSTEM_KEY=MagicBean
 ENV MB_HOME='file:///modou/workspace'
 ENV MB_MQ_HOST=rabbitmq
