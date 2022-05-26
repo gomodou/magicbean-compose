@@ -1,11 +1,11 @@
 #!/bin/bash 
 
-MAGICBEAN_VERSION="2.6.3"
+HYKPI_VERSION="2.6.4"
 CURRENT_DIR=$(pwd)
-ALIYUN_COMPOSE_FILE="https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.aliyun.$MAGICBEAN_VERSION.yaml"
-DOCKERHUB_COMPOSE_FILE="https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/docker-compose.dockerhub.$MAGICBEAN_VERSION.yaml"
-ENV_FILE="https://magicbean-release.oss-cn-hongkong.aliyuncs.com/magicbean-compose/prod.$MAGICBEAN_VERSION.env"
-WORKING_DIR=$CURRENT_DIR/magicbean-compose
+ALIYUN_COMPOSE_FILE="https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/docker-compose.aliyun.$HYKPI_VERSION.yaml"
+DOCKERHUB_COMPOSE_FILE="https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/docker-compose.dockerhub.$HYKPI_VERSION.yaml"
+ENV_FILE="https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/prod.$HYKPI_VERSION.env"
+WORKING_DIR=$CURRENT_DIR/hykpi-compose
 COMPOSE_FILE_NAME="docker-compose.yml"
 ENV_FILE_NAME="prod.env"
 export DOCKER_CLIENT_TIMEOUT=120
@@ -58,7 +58,7 @@ function finished_banner() {
     echo "open http://localhost:9010/login (default user/password: admin / 123456)"
     echo ""
     echo ""
-    echo "Magicbean deployed in $WORKING_DIR"
+    echo "HYKPI deployed in $WORKING_DIR"
     echo "How to stop the service ?"
     echo "$ cd $WORKING_DIR"
     echo "$ docker-compose --env-file $ENV_FILE_NAME -f $COMPOSE_FILE_NAME stop"
