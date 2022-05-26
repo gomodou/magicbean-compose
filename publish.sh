@@ -1,4 +1,4 @@
-VERSION=2.6.3
+VERSION=2.6.4
 CURRENT_DIR=$(pwd)
 function build_image() {
     DOCKER_DIR=$1
