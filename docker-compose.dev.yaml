@@ -16,8 +16,8 @@ services:
       - PGDATA=/var/lib/postgresql/data
     networks:
       - pipeline-network
-  modou_hive_db:
-    build: modou_hive_db
+  hykpi_hive_db:
+    build: hykpi_hive_db
     command: "postgres -c listen_addresses='*'"
     environment:
       - POSTGRES_USER=postgres
@@ -40,7 +40,7 @@ services:
     depends_on:
       - "pipeline"
       - "db"
-      - "modou_hive_db"
+      - "hykpi_hive_db"
       - "rabbitmq"
     networks:
       - pipeline-network

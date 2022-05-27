@@ -24,4 +24,4 @@ clean:
 	rm -rf pgdata rabbitmq
 	rm -rf backend/logs
 	rm -rf backend/magicbean
-	rm -rf pipeline/modou_workspace
+	rm -rf pipeline/hykpi_workspace

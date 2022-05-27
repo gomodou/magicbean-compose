@@ -31,7 +31,7 @@ RUN curl --create-dirs -o ./magicbean-$MAGICBEAN_VERSION.tar.gz $OSS_URL/magicbe
     && echo "<configuration>" >> $SPARK_HOME/conf/hive-site.xml \
     && echo "  <property>" >> $SPARK_HOME/conf/hive-site.xml \
     && echo "    <name>javax.jdo.option.ConnectionURL</name>" >> $SPARK_HOME/conf/hive-site.xml \
-    && echo "    <value>jdbc:postgresql://modou_hive_db:$MODOU_HIVE_PORT/modou_hive</value>" >> $SPARK_HOME/conf/hive-site.xml \
+    && echo "    <value>jdbc:postgresql://hykpi_hive_db:$MODOU_HIVE_PORT/modou_hive</value>" >> $SPARK_HOME/conf/hive-site.xml \
     && echo "  </property>" >> $SPARK_HOME/conf/hive-site.xml \
     && echo "  <property>" >> $SPARK_HOME/conf/hive-site.xml \
     && echo "    <name>javax.jdo.option.ConnectionDriverName</name>" >> $SPARK_HOME/conf/hive-site.xml \

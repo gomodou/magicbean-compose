@@ -2,12 +2,12 @@ version: "3"
 
 services:
   pipeline:
-    image: hykpi/modou_pipeline:latest
+    image: hykpi/hykpi_pipeline:latest
     networks:
       - pipeline-network
     restart: always
     volumes:
-      - ./pipeline/modou_workspace:/modou/workspace
+      - ./pipeline/hykpi_workspace:/modou/workspace
   db:
     image: postgres:13.1
     command: "postgres -c listen_addresses='*'"
@@ -20,8 +20,8 @@ services:
       - ./pgdata:/var/lib/postgresql/data
     networks:
       - pipeline-network
-  modou_hive_db:
-    image: hykpi/modou_hive_db:latest
+  hykpi_hive_db:
+    image: hykpi/hykpi_hive_db:latest
     command: "postgres -c listen_addresses='*'"
     environment:
       - POSTGRES_USER=postgres
@@ -38,13 +38,13 @@ services:
     networks:
       - pipeline-network
   backend:
-    image: hykpi/modou_backend:latest
+    image: hykpi/hykpi_backend:latest
     ports:
       - 9010:80
     depends_on:
       - "pipeline"
       - "db"
-      - "modou_hive_db"
+      - "hykpi_hive_db"
       - "rabbitmq"
     networks:
       - pipeline-network
