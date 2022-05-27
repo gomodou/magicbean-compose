@@ -39,7 +39,7 @@ ENV MB_EXECUTOR_PIPELINE_JAR='/modou/pipeline/cache/pipeline-core-spark-2.4.jar'
 ENV MB_PIPELINE_WORKSPACE='file:///modou/workspace'
 ENV MB_EXECUTOR_SQL_SPARK_HADOOP_FS_DEFAULT_NAME='file:///tmp/modou/'
 ENV MB_HIVE_THRIFT_PORT=11004
-ENV MB_HIVE_THRIFT_URL='jdbc:postgresql://modou_hive_db:5432/modou_hive'
+ENV MB_HIVE_THRIFT_URL='jdbc:postgresql://hykpi_hive_db:5432/modou_hive'
 ENV MB_HIVE_THRIFT_USERNAME=postgres
 ENV MB_HIVE_THRIFT_PASSWORD='123456'
 

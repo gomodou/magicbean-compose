@@ -9,25 +9,25 @@ function build_image() {
 }
 build_image "backend" $VERSION
 build_image pipeline $VERSION
-#build_image modou_hive_db 2.6.0
+#build_image hykpi_hive_db 2.6.0
 
-#docker push hykpi/modou_hive_db:2.6.0
-docker push hykpi/modou_backend:$VERSION
-docker push hykpi/modou_pipeline:$VERSION
-#docker push hykpi/modou_hive_db:latest
-docker push hykpi/modou_pipeline:latest
-docker push hykpi/modou_backend:latest
-#docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_hive_db:2.6.0
-docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_backend:$VERSION
-docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_pipeline:$VERSION
-#docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_hive_db:latest
-docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_backend:latest
-docker push registry.cn-shanghai.aliyuncs.com/magicbean/modou_pipeline:latest
+#docker push hykpi/hykpi_hive_db:2.6.0
+docker push hykpi/hykpi_backend:$VERSION
+docker push hykpi/hykpi_pipeline:$VERSION
+#docker push hykpi/hykpi_hive_db:latest
+docker push hykpi/hykpi_pipeline:latest
+docker push hykpi/hykpi_backend:latest
+#docker push registry.cn-shanghai.aliyuncs.com/magicbean/hykpi_hive_db:2.6.0
+docker push registry.cn-shanghai.aliyuncs.com/magicbean/hykpi_backend:$VERSION
+docker push registry.cn-shanghai.aliyuncs.com/magicbean/hykpi_pipeline:$VERSION
+#docker push registry.cn-shanghai.aliyuncs.com/magicbean/hykpi_hive_db:latest
+docker push registry.cn-shanghai.aliyuncs.com/magicbean/hykpi_backend:latest
+docker push registry.cn-shanghai.aliyuncs.com/magicbean/hykpi_pipeline:latest
 
 echo ""
 echo ""
 echo "-------------"
-docker image ls | grep modou 
+docker image ls | grep hykpi
 echo "-------------"
 echo ""
 echo ""
