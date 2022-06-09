@@ -8,6 +8,13 @@ function Check-Command($cmdname) {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
 }
 
+$processes = Get-Process "*docker desktop*"
+if ($processes.Count -eq 0)
+{
+    Start-Service com.docker*
+    Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+}
+
 $cmdName="docker-compose.exe"
 if (Check-Command -cmdname $cmdName) {
     if( (Get-WinUserLanguageList).LocalizedName.ToLower().SubString(0,2) -ceq "en" ) {
