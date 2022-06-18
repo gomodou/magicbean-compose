@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-HYKPI_VERSION="2.6.5"
+HYKPI_VERSION="2.7.0"
 CURRENT_DIR=$(pwd)
 ALIYUN_COMPOSE_FILE="https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/docker-compose.aliyun.$HYKPI_VERSION.yaml"
 DOCKERHUB_COMPOSE_FILE="https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/docker-compose.dockerhub.$HYKPI_VERSION.yaml"

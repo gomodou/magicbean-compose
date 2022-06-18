@@ -1,4 +1,4 @@
-$hykpi_version = '2.6.5'
+$hykpi_version = '2.7.0'
 $current_dir = Get-Location
 $new_foldername = 'hykpi-compose'
 New-Item -Name $new_foldername -Path $current_dir -ItemType "directory"
