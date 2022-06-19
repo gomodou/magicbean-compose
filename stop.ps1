@@ -1,0 +1,1 @@
+docker-compose.exe --env-file prod.env stop
