@@ -63,7 +63,7 @@ function finished_banner() {
     echo ""
     echo ""
     echo "========================================"
-    echo "open http://localhost:9010/
+    echo "open http://localhost:9010/"
     echo ""
     echo ""
     echo "HYKPI deployed in $WORKING_DIR"
