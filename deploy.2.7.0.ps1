@@ -20,6 +20,7 @@ if (Check-Command -cmdname $cmdName) {
     curl.exe -o start.ps1 https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/start.ps1
     curl.exe -o stop.ps1 https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/stop.ps1
     curl.exe -o uninstall.ps1 https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/uninstall.ps1
+    curl.exe -o upgrade.ps1 https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/upgrade.ps1 
 
     Write-Output "docker-compose.exe --env-file prod.env -f docker-compose.yaml up -d"
     docker-compose.exe --env-file prod.env -f docker-compose.yaml up -d

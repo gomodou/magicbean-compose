@@ -37,6 +37,7 @@ function get_compose_file() {
     curl_downloader $WORKING_DIR start.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/start.sh
     curl_downloader $WORKING_DIR stop.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/stop.sh
     curl_downloader $WORKING_DIR uninstall.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/uninstall.sh
+    curl_downloader $WORKING_DIR upgrade.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/upgrade.sh
 }
 
 function workdir() {
