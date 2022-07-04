@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-HYKPI_VERSION="2.6.5"
+HYKPI_VERSION="2.7.0"
 CURRENT_DIR=$(pwd)
 ALIYUN_COMPOSE_FILE="https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/docker-compose.aliyun.$HYKPI_VERSION.yaml"
 DOCKERHUB_COMPOSE_FILE="https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/docker-compose.dockerhub.$HYKPI_VERSION.yaml"
@@ -34,6 +34,10 @@ function get_compose_file() {
         curl_downloader $WORKING_DIR $COMPOSE_FILE_NAME $DOCKERHUB_COMPOSE_FILE
     fi
     curl_downloader $WORKING_DIR $ENV_FILE_NAME $ENV_FILE
+    curl_downloader $WORKING_DIR start.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/start.sh
+    curl_downloader $WORKING_DIR stop.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/stop.sh
+    curl_downloader $WORKING_DIR uninstall.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/uninstall.sh
+    curl_downloader $WORKING_DIR upgrade.sh https://hykpi-release.oss-cn-hongkong.aliyuncs.com/hykpi-compose/upgrade.sh
 }
 
 function workdir() {
@@ -60,7 +64,7 @@ function finished_banner() {
     echo ""
     echo ""
     echo "========================================"
-    echo "open http://localhost:9010/login (default user/password: admin / 123456)"
+    echo "open http://localhost:9010/"
     echo ""
     echo ""
     echo "HYKPI deployed in $WORKING_DIR"
